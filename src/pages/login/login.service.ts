@@ -4,7 +4,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { UserModel } from '../login/login.model';
 @Injectable()
 export class LoginService {
-    apiUrl: string = 'http://localhost:3000/';
+    apiUrl: string = 'http://ecommerce-server.herokuapp.com/';
     headers = new Headers({
         'Content-Type': 'application/json'
     });
@@ -15,23 +15,23 @@ export class LoginService {
     constructor(public http: Http) { }
 
     //LOGIN to API
-    // logingin(logindata): Promise<any> {
-    //     return new Promise((resolve, reject) => {
-    //         this.http.post(this.apiUrl + 'api/auth/signin', logindata, this.optionsURL).map(res => {
-    //             return res.json();
-    //         }).subscribe(data => {
-    //             resolve(data);
-    //         }, (error) => {
-    //             reject(error);
-    //         });
-    //     })
-    // }
+    logingin(logindata): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.http.post(this.apiUrl + 'api/auth/signin', logindata, this.optionsURL).map(res => {
+                return res.json();
+            }).subscribe(data => {
+                resolve(data);
+            }, (error) => {
+                reject(error);
+            });
+        })
+    }
 
     //LOGIN check with local JSON 
-    logingin(logindata): Promise<UserModel> {
-        return this.http.get('./assets/example_data/users.json')
-            .toPromise()
-            .then(response => response.json() as UserModel)
-            .catch();
-    }
+    // logingin(logindata): Promise<UserModel> {
+    //     return this.http.get('./assets/example_data/users.json')
+    //         .toPromise()
+    //         .then(response => response.json() as UserModel)
+    //         .catch();
+    // }
 }

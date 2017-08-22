@@ -1,4 +1,3 @@
-import { UserProvider } from '../../providers/user/user';
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
@@ -29,8 +28,7 @@ export class LoginPage {
     // public googleLoginService: GoogleLoginService,
     // public twitterLoginService: TwitterLoginService,
     public loadingCtrl: LoadingController,
-    private loginSer: LoginService,
-    private userpro: UserProvider
+    private loginSer: LoginService
   ) {
     this.main_page = { component: TabsNavigationPage };
 
@@ -41,13 +39,34 @@ export class LoginPage {
   }
 
   doLogin() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    let user = { "username": this.login.value.username, "password": this.login.value.password }
+    this.loginSer.logingin(user).then(data => {
+      console.log(data);
+      if (data.roles == "seller") {
+        loading.dismiss();
+        localStorage.setItem('user', data);
+        this.nav.setRoot(this.main_page.component);
+      } else {
+        loading.dismiss();
+        alert("User is not authorize");
+      }
+
+    }).catch(err => {
+      alert("Username or password is not correct");
+      loading.dismiss();
+    });
+
+    // Loogin Local
     // let loading = this.loadingCtrl.create({
     //   content: 'Please wait...'
     // });
     // loading.present();
     // let user = { "username": this.login.value.username, "password": this.login.value.password }
     // this.loginSer.logingin(user).then(data => {
-
     //   this.userpro.user = data;
     //   console.log(this.userpro.user);
     //   loading.dismiss();
@@ -56,22 +75,6 @@ export class LoginPage {
     //   alert("Username or password is not correct");
     //   loading.dismiss();
     // });
-
-    // Loogin Local
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-    loading.present();
-    let user = { "username": this.login.value.username, "password": this.login.value.password }
-    this.loginSer.logingin(user).then(data => {
-      this.userpro.user = data;
-      console.log(this.userpro.user);
-      loading.dismiss();
-      this.nav.setRoot(this.main_page.component);
-    }).catch(err => {
-      alert("Username or password is not correct");
-      loading.dismiss();
-    });
 
   }
 

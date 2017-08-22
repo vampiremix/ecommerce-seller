@@ -70,7 +70,6 @@ import { RegisterComponent } from '../components/register/register';
 import { RegisterProfileComponent } from '../components/register-profile/register-profile';
 import { RegisterShopComponent } from '../components/register-shop/register-shop';
 import { HistoryComponent } from '../components/history/history';
-import { UserProvider } from '../providers/user/user';
 
 
 export function createTranslateLoader(http: Http) {
@@ -173,7 +172,6 @@ export function createTranslateLoader(http: Http) {
     ImagePicker,
     Crop,
     EmailComposer,
-    UserProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
