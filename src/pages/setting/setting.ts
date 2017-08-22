@@ -12,6 +12,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-setting',
   templateUrl: 'setting.html',
 })
+
 export class SettingPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
