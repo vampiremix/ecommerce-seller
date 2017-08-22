@@ -68,6 +68,7 @@ import { RegisterComponent } from '../components/register/register';
 import { RegisterProfileComponent } from '../components/register-profile/register-profile';
 import { RegisterShopComponent } from '../components/register-shop/register-shop';
 import { HistoryComponent } from '../components/history/history';
+import { HomeManageOrderServiceProvider } from '../pages/home-manage-order/home-manage-order-service';
 
 
 export function createTranslateLoader(http: Http) {
@@ -169,7 +170,8 @@ export function createTranslateLoader(http: Http) {
     AppRate,
     ImagePicker,
     Crop,
-    EmailComposer
+    EmailComposer,
+    HomeManageOrderServiceProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
