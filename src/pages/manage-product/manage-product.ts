@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ProductlistService } from "./manage-product.service";
 import { ProdLists } from "./manage-product.model";
+import { CreateEditProductPage } from "../create-edit-product/create-edit-product";
 
 /**
  * Generated class for the ManageProductPage page.
@@ -20,7 +21,8 @@ export class ManageProductPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public productlistService: ProductlistService
+    public productlistService: ProductlistService,
+    public modalCtrl: ModalController
   ) {
   }
 
@@ -29,6 +31,12 @@ export class ManageProductPage {
     this.productlistService.getData().then(data => {
       this.pro = data;
     });
+  }
+
+  addProduct() {
+    let modal = this.modalCtrl.create(CreateEditProductPage);
+    modal.present();
+    // this.navCtrl.push(CreateEditProductPage);
   }
 
 }
