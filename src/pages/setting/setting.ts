@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SettingShopPage } from "../setting-shop/setting-shop";
+import { SettingUserPage } from "../setting-user/setting-user";
 
 /**
  * Generated class for the SettingPage page.
@@ -22,4 +24,10 @@ export class SettingPage {
     console.log('ionViewDidLoad SettingPage');
   }
 
+  SettingShopPage(){
+    this.navCtrl.push(SettingShopPage);
+  }
+  SettingUserPage(){
+    this.navCtrl.push(SettingUserPage);
+  }
 }

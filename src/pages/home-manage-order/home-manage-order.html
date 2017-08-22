@@ -14,5 +14,22 @@
 
 
 <ion-content padding>
+    <ion-list>
+        <ion-item  *ngFor="let item of orders.listorders" (click)="presentActionSheet()">
+            <p>DocNo : {{item._id}}</p>
+          <ion-thumbnail item-start>
+            <img src="{{item.img}}">
+          </ion-thumbnail>
+          <h2>{{item.productname}}</h2>
+          <p>จำนวน{{item.qty}}ชิ้น</p>
+          <p>ราคา{{item.amount}}บาท</p>
+          
+          
+          
+        </ion-item>
+      </ion-list>
+
+
+      
 
 </ion-content>
