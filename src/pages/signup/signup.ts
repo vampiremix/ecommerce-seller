@@ -70,13 +70,8 @@ export class SignupPage {
       } else if (this.signup.value.password !== this.signup.value.confirm_password) {
         alert("Passwords do not match")
       } else {
-        this.signupService.signup(data).then(res => {
-          localStorage.setItem('user', res);
           this.nav.setRoot(this.main_page.component);
-        }).catch(err => {
-          let error = JSON.parse(err._body);
-          alert(error.message.replace("11000 duplicate key error collection: mean-secret.users index:", ""));
-        });
+        
       }
     } else {
       alert('email incorrect')

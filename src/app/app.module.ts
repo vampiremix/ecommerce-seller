@@ -1,3 +1,4 @@
+import { signupService } from '../pages/signup/signup.service';
 import { SettingUserPage } from '../pages/setting-user/setting-user';
 import { SettingShopPage } from '../pages/setting-shop/setting-shop';
 import { ListProductComponent } from '../components/list-product/list-product';
@@ -156,6 +157,7 @@ export function createTranslateLoader(http: Http) {
     NotificationsService,
     LoginService,
     HistoryService,
+    signupService,
     // FacebookLoginService,
     // GoogleLoginService,
     // TwitterLoginService,
