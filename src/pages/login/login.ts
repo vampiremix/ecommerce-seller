@@ -48,7 +48,7 @@ export class LoginPage {
       console.log(data);
       if (data.roles == "seller") {
         loading.dismiss();
-        localStorage.setItem('user', data);
+        localStorage.setItem('user', JSON.stringify(data));
         this.nav.setRoot(this.main_page.component);
       } else {
         loading.dismiss();
