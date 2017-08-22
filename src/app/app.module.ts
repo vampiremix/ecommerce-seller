@@ -66,8 +66,6 @@ import { NotificationsService } from '../pages/notifications/notifications.servi
 
 //providers
 import { LanguageService } from '../providers/language/language.service';
-import { SearchProductlistComponent } from '../components/search-productlist/search-productlist';
-import { ActionSheetsComponent } from '../components/action-sheets/action-sheets';
 import { RegisterComponent } from '../components/register/register';
 import { RegisterProfileComponent } from '../components/register-profile/register-profile';
 import { RegisterShopComponent } from '../components/register-shop/register-shop';
@@ -78,6 +76,7 @@ import { SettingUserServiceProvider } from '../pages/setting-user/setting-user-s
 import { ProductDetailServiceProvider } from '../pages/product-detail/product-detail-service';
 import { HistoryService } from '../pages/history/history.service';
 import { LoginService } from '../pages/login/login.service';
+import { ProductlistService } from "../pages/manage-product/manage-product.service";
 
 
 
@@ -111,9 +110,7 @@ export function createTranslateLoader(http: Http) {
 
     PreloadImage,
     BackgroundImage,
-    SearchProductlistComponent,
     ListProductComponent,
-    ActionSheetsComponent,
     RegisterComponent,
     RegisterProfileComponent,
     RegisterShopComponent,
@@ -155,7 +152,8 @@ export function createTranslateLoader(http: Http) {
     SettingPage,
     HistoryPage,
     SettingShopPage,
-    SettingUserPage
+    SettingUserPage,
+    ListProductComponent
   ],
   providers: [
     ListingService,
@@ -189,7 +187,8 @@ export function createTranslateLoader(http: Http) {
     HomeManageOrderServiceProvider,
     SettingShopServiceProvider,
     SettingUserServiceProvider,
-    ProductDetailServiceProvider
+    ProductDetailServiceProvider,
+    ProductlistService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ProductlistService } from "./manage-product.service";
+import { ProdLists } from "./manage-product.model";
 
 /**
  * Generated class for the ManageProductPage page.
@@ -13,12 +15,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'manage-product.html',
 })
 export class ManageProductPage {
+  public pro: ProdLists = new ProdLists;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public productlistService: ProductlistService
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ManageProductPage');
+    this.productlistService.getData().then(data => {
+      this.pro = data;
+    });
   }
 
 }
