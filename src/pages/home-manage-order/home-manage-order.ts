@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,ActionSheetController,AlertControll
 
 import { homeModel } from "./home-manage-order-model";
 import { HomeManageOrderServiceProvider } from "./home-manage-order-service";
+import { OrderDetailPage } from "../order-detail/order-detail";
 
 /**
  * Generated class for the HomeManageOrderPage page.
@@ -61,7 +62,8 @@ export class HomeManageOrderPage {
         {
           text: 'ดูรายละเอียดสินค้า',
           handler: () => {
-            console.log('Destructive clicked');
+            // console.log('Destructive clicked');
+            this.navCtrl.push(OrderDetailPage);
           }
         },{
           text: 'ยืนยันการสั่งซื้อสินค้า',
