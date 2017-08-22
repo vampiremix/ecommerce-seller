@@ -6,13 +6,57 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>ProductDetail</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>ProductDetail</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <!-- <ion-row>
+        <ion-col col-12>
+            <h5>แปรงแต่งหน้า</h5>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-12>
+            <label for="" style="color:gray">แปรงแต่งหน้าครอบจักรวาล แต่งปล้วสวย แต่งแล้วรวย</label>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-12>
+            <h5 style="color:red"> 200.00 บาท</h5>
+        </ion-col>
+    </ion-row> -->
+    <ion-list>
+        <ion-item>
+            <h2> {{productDetail.name}}</h2>
+            <p>{{productDetail.detail}}</p>
+            <p style="color:red">{{productDetail.unitprice}} บาท </p>
+        </ion-item>
+    </ion-list>
+    <!-- <ion-row text-center padding>
+        <ion-col col-12><img width="70%" src="https://lovelace-media.imgix.net/uploads/647/31e36160-9f49-0132-a2d7-0e6808eb79bf.png?w=740&h=925&fit=crop&crop=faces&auto=format&q=70"></ion-col>
+    </ion-row> -->
+    <ion-slides pager style="margin-top:-130px;">
+
+        <ion-slide *ngFor="let image of productDetail.img">
+            <img width="20%" src="{{image.url}}">
+        </ion-slide>
+
+    </ion-slides>
+    <!-- <ion-row>
+        <ion-col col-5>
+            ระยะเวลาเตรียมของ
+        </ion-col>
+        <ion-col col-7>
+        </ion-col>
+    </ion-row> -->
+    <ion-list>
+        <ion-item>
+            <p>ระยะเวลาเตรียมของ : {{productDetail.preparedays}} วัน</p>
+        </ion-item>
+    </ion-list>
 
 </ion-content>
