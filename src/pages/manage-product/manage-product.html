@@ -1,16 +1,18 @@
 <ion-header>
   <ion-navbar>
-      <ion-title>{{pro.title}}</ion-title>
+    <ion-title>{{pro.title}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="list-mini-content">
   <div class="list-mini">
-      <ion-list>
-          <div>
-            <action-sheets></action-sheets>  
-          </div>
-          <!-- <list-product [productList]="Listprod"></list-product> -->
-      </ion-list>
+    <ion-list>
+      <list-product [productList]="pro"></list-product>
+    </ion-list>
   </div>
+
+  <ion-fab right bottom>
+      <button ion-fab color="secondary"><ion-icon name="add"></ion-icon></button>
+      
+    </ion-fab>
 </ion-content>
