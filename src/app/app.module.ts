@@ -69,6 +69,9 @@ import { RegisterComponent } from '../components/register/register';
 import { RegisterProfileComponent } from '../components/register-profile/register-profile';
 import { RegisterShopComponent } from '../components/register-shop/register-shop';
 import { HistoryComponent } from '../components/history/history';
+import { SettingShopServiceProvider } from '../pages/setting-shop/setting-shop-service';
+import { SettingUserServiceProvider } from '../pages/setting-user/setting-user-service';
+import { ProductDetailServiceProvider } from '../pages/product-detail/product-detail-service';
 import { HistoryService } from '../pages/history/history.service';
 import { LoginService } from '../pages/login/login.service';
 
@@ -174,6 +177,9 @@ export function createTranslateLoader(http: Http) {
     ImagePicker,
     Crop,
     EmailComposer,
+    SettingShopServiceProvider,
+    SettingUserServiceProvider,
+    ProductDetailServiceProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
