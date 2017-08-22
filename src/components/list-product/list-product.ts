@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ProdList } from "./list-product.model";
-import { Platform, ActionSheetController } from "ionic-angular";
+import { Platform, ActionSheetController, NavController, NavParams } from "ionic-angular";
+import { ProductDetailPage } from "../../pages/product-detail/product-detail";
 
 /**
  * Generated class for the ListProductComponent component.
@@ -19,7 +20,9 @@ export class ListProductComponent {
 
   constructor(
     public platform: Platform,
-    public actionsheetCtrl: ActionSheetController
+    public actionsheetCtrl: ActionSheetController,
+    public navCtrl: NavController,
+    public navParams: NavParams
   ) {
     // this.initializeItems();
   }
@@ -34,6 +37,7 @@ export class ListProductComponent {
           // icon: !this.platform.is('ios') ? 'share' : null,
           handler: () => {
             console.log('Share clicked');
+            this.openProductDetailPage();
           }
         },
         {
@@ -73,7 +77,7 @@ export class ListProductComponent {
   // initializeItems() {
   //   console.log(this.productList);
   //   // this.prods = this.productList.product;
-    
+
   // }
 
   getItems(ev) {
@@ -82,16 +86,19 @@ export class ListProductComponent {
     // set val to the value of the ev target
     var val = ev.target.value;
 
-      if(!this.prods){
-        this.prods = this.productList.product;        
-      }
+    if (!this.prods) {
+      this.prods = this.productList.product;
+    }
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.productList.product = this.prods.filter((item) => {
         return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
-    }else{
+    } else {
       this.productList.product = this.prods;
     }
+  }
+  openProductDetailPage() {
+    this.navCtrl.push(ProductDetailPage);
   }
 }
