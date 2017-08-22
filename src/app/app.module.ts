@@ -55,6 +55,8 @@ import { PreloadImage } from '../components/preload-image/preload-image';
 import { BackgroundImage } from '../components/background-image/background-image';
 import { VideoPlayerModule } from '../components/video-player/video-player.module';
 import { ValidatorsModule } from '../components/validators/validators.module';
+import { ShowHideContainer } from '../components/show-hide-password/show-hide-container';
+import { ShowHideInput } from '../components/show-hide-password/show-hide-input';
 
 //page services
 import { ListingService } from '../pages/listing/listing.service';
@@ -114,6 +116,8 @@ export function createTranslateLoader(http: Http) {
     RegisterProfileComponent,
     RegisterShopComponent,
     HistoryComponent,
+    ShowHideContainer,
+    ShowHideInput,
   ],
   imports: [
     BrowserModule,
