@@ -1,3 +1,4 @@
+import { signupService } from '../pages/signup/signup.service';
 import { SettingUserPage } from '../pages/setting-user/setting-user';
 import { SettingShopPage } from '../pages/setting-shop/setting-shop';
 import { ListProductComponent } from '../components/list-product/list-product';
@@ -60,6 +61,7 @@ import { ListingService } from '../pages/listing/listing.service';
 import { ProfileService } from '../pages/profile/profile.service';
 import { NotificationsService } from '../pages/notifications/notifications.service';
 
+
 //providers
 import { LanguageService } from '../providers/language/language.service';
 import { SearchProductlistComponent } from '../components/search-productlist/search-productlist';
@@ -69,6 +71,12 @@ import { RegisterProfileComponent } from '../components/register-profile/registe
 import { RegisterShopComponent } from '../components/register-shop/register-shop';
 import { HistoryComponent } from '../components/history/history';
 import { HomeManageOrderServiceProvider } from '../pages/home-manage-order/home-manage-order-service';
+import { SettingShopServiceProvider } from '../pages/setting-shop/setting-shop-service';
+import { SettingUserServiceProvider } from '../pages/setting-user/setting-user-service';
+import { ProductDetailServiceProvider } from '../pages/product-detail/product-detail-service';
+import { HistoryService } from '../pages/history/history.service';
+import { LoginService } from '../pages/login/login.service';
+
 
 
 export function createTranslateLoader(http: Http) {
@@ -107,7 +115,7 @@ export function createTranslateLoader(http: Http) {
     RegisterComponent,
     RegisterProfileComponent,
     RegisterShopComponent,
-    HistoryComponent
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -149,7 +157,9 @@ export function createTranslateLoader(http: Http) {
     ListingService,
     ProfileService,
     NotificationsService,
-
+    LoginService,
+    HistoryService,
+    signupService,
     // FacebookLoginService,
     // GoogleLoginService,
     // TwitterLoginService,
@@ -171,7 +181,11 @@ export function createTranslateLoader(http: Http) {
     ImagePicker,
     Crop,
     EmailComposer,
-    HomeManageOrderServiceProvider
+
+    HomeManageOrderServiceProvider,
+    SettingShopServiceProvider,
+    SettingUserServiceProvider,
+    ProductDetailServiceProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

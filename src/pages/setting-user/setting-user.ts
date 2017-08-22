@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+ import { settingUserModel } from "./setting-user-model";
+ import {  SettingUserServiceProvider} from "./setting-user-service";
 /**
  * Generated class for the SettingUserPage page.
  *
@@ -13,8 +14,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'setting-user.html',
 })
 export class SettingUserPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  settingUser : settingUserModel = new settingUserModel();
+  constructor(public navCtrl: NavController, public navParams: NavParams,public settingUserService:SettingUserServiceProvider) {
+    this.settingUserService
+    .getsettingUser()
+    .then(data => {
+      this.settingUser = data;
+      console.log(this.settingUser);
+    });
   }
 
   ionViewDidLoad() {

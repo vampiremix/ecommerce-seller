@@ -6,6 +6,8 @@ import { SignupPage } from '../signup/signup';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
 
+import { LoginService } from "./login.service";
+
 // import { FacebookLoginService } from '../facebook-login/facebook-login.service';
 // import { GoogleLoginService } from '../google-login/google-login.service';
 // import { TwitterLoginService } from '../twitter-login/twitter-login.service';
@@ -25,20 +27,57 @@ export class LoginPage {
     // public facebookLoginService: FacebookLoginService,
     // public googleLoginService: GoogleLoginService,
     // public twitterLoginService: TwitterLoginService,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    private loginSer: LoginService
   ) {
     this.main_page = { component: TabsNavigationPage };
 
     this.login = new FormGroup({
-      email: new FormControl('', Validators.required),
-      password: new FormControl('test', Validators.required)
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
     });
   }
 
-  doLogin(){
-    this.nav.setRoot(this.main_page.component);
+  doLogin() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+    let user = { "username": this.login.value.username, "password": this.login.value.password }
+    this.loginSer.logingin(user).then(data => {
+      console.log(data);
+      if (data.roles == "seller") {
+        loading.dismiss();
+        localStorage.setItem('user', JSON.stringify(data));
+        this.nav.setRoot(this.main_page.component);
+      } else {
+        loading.dismiss();
+        alert("User is not authorize");
+      }
+
+    }).catch(err => {
+      alert("Username or password is not correct");
+      loading.dismiss();
+    });
+
+    // Loogin Local
+    // let loading = this.loadingCtrl.create({
+    //   content: 'Please wait...'
+    // });
+    // loading.present();
+    // let user = { "username": this.login.value.username, "password": this.login.value.password }
+    // this.loginSer.logingin(user).then(data => {
+    //   this.userpro.user = data;
+    //   console.log(this.userpro.user);
+    //   loading.dismiss();
+    //   this.nav.setRoot(this.main_page.component);
+    // }).catch(err => {
+    //   alert("Username or password is not correct");
+    //   loading.dismiss();
+    // });
+
   }
 
-  
+
 
 }
