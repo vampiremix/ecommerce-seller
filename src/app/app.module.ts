@@ -173,7 +173,7 @@ export function createTranslateLoader(http: Http) {
     AppRate,
     ImagePicker,
     Crop,
-    EmailComposer,
+    EmailComposer
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

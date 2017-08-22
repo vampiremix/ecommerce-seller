@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HistoryPage } from '../history/history';
 
 /**
  * Generated class for the SettingPage page.
@@ -20,6 +21,10 @@ export class SettingPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingPage');
+  }
+
+  HistoryPage(){
+    this.navCtrl.push(HistoryPage);
   }
 
 }

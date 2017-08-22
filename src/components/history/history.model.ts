@@ -1,11 +1,6 @@
 export class historyModel {
-    paid: listorder = new listorder();
-    unpay: listorder = new listorder();
-}
-
-export class listorder {
-    listorder: Array<history>;
-    amount: number;
+    paid: Array<history>;
+    unpay: Array<history>;
 }
 
 export class history {

@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 /**
  * Generated class for the HistoryComponent component.
  *
@@ -11,7 +10,8 @@ import { Component } from '@angular/core';
   templateUrl: 'history.html'
 })
 export class HistoryComponent {
-
+  @Input() historyData: any;
+  @Input() amount: any;
   text: string;
 
   constructor() {

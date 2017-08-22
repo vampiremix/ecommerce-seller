@@ -1,4 +1,43 @@
 <!-- Generated template for the HistoryComponent component -->
-<div>
-  {{text}}
-</div>
+<!-- {{historyData}} -->
+<ion-list>
+  <ion-item *ngFor="let item of historyData">
+    <ion-thumbnail item-start *ngFor="let image of item.img">
+      <img src="{{image.url}}">
+    </ion-thumbnail>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <p>เลขที่ออเดอร์ {{item.ordernumber}}</p>
+        </ion-col>
+        <ion-col text-right col-6>
+          <p>{{item.day}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <h5>{{item.productname}}</h5>
+    <h5>จำนวน {{item.unit}} ชิ้น</h5>
+    <h5 style="color:red">{{item.unitprice}} บาท</h5>
+    <div text-right *ngIf="item.status === 'paid'">
+      <p style="color:lime">ได้รับการชำระเงินแล้ว</p>
+    </div>
+    <div text-right *ngIf="item.status === 'unpay'">
+      <p style="color:red">ยังไม่ได้รับการชำระเงิน</p>
+    </div>
+  </ion-item>
+</ion-list>
+<ion-footer>
+    <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            ราคารวมที่ต้องชำระ
+          </ion-col>
+          <ion-col text-right col-6>
+            {{amount}} บาท
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    <!-- <ion-toolbar text-right>
+      <ion-title>รวม  {{amount}} บาท</ion-title>
+    </ion-toolbar> -->
+  </ion-footer>
