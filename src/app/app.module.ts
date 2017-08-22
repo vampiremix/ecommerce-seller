@@ -1,3 +1,4 @@
+import { LoginService } from '../pages/login/login.service';
 import { SettingUserPage } from '../pages/setting-user/setting-user';
 import { SettingShopPage } from '../pages/setting-shop/setting-shop';
 import { ListProductComponent } from '../components/list-product/list-product';
@@ -60,6 +61,7 @@ import { ListingService } from '../pages/listing/listing.service';
 import { ProfileService } from '../pages/profile/profile.service';
 import { NotificationsService } from '../pages/notifications/notifications.service';
 
+
 //providers
 import { LanguageService } from '../providers/language/language.service';
 import { SearchProductlistComponent } from '../components/search-productlist/search-productlist';
@@ -68,6 +70,7 @@ import { RegisterComponent } from '../components/register/register';
 import { RegisterProfileComponent } from '../components/register-profile/register-profile';
 import { RegisterShopComponent } from '../components/register-shop/register-shop';
 import { HistoryComponent } from '../components/history/history';
+import { UserProvider } from '../providers/user/user';
 
 
 export function createTranslateLoader(http: Http) {
@@ -106,7 +109,7 @@ export function createTranslateLoader(http: Http) {
     RegisterComponent,
     RegisterProfileComponent,
     RegisterShopComponent,
-    HistoryComponent
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -148,7 +151,7 @@ export function createTranslateLoader(http: Http) {
     ListingService,
     ProfileService,
     NotificationsService,
-
+    LoginService,
     // FacebookLoginService,
     // GoogleLoginService,
     // TwitterLoginService,
@@ -169,7 +172,8 @@ export function createTranslateLoader(http: Http) {
     AppRate,
     ImagePicker,
     Crop,
-    EmailComposer
+    EmailComposer,
+    UserProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
