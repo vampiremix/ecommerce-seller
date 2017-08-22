@@ -6,21 +6,21 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Setting</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Setting</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-list>
-    <button ion-item class="app-font-13" (click)="HistoryPage()"><ion-icon name="ios-clock-outline"> ประวัติการขาย </ion-icon></button>
+    <ion-list>
+        <button ion-item class="app-font-13" (click)="HistoryPage()"><ion-icon name="ios-clock-outline">ประวัติการขาย</ion-icon></button>
 
-    <button ion-item class="app-font-13"><ion-icon name="ios-home-outline"> จัดการข้อมูลร้าน </ion-icon></button>
+        <button ion-item class="app-font-13" (click)="SettingShopPage()"><ion-icon name="ios-home-outline">จัดการข้อมูลร้าน</ion-icon></button>
 
-    <button ion-item class="app-font-13"><ion-icon name="ios-construct-outline"> ตั้งค่าบัญชีผู้ใช้ทั่วไป </ion-icon></button>
+        <button ion-item class="app-font-13" (click)="SettingUserPage()"><ion-icon name="ios-construct-outline">ตั้งค่าบัญชีผู้ใช้ทั่วไป</ion-icon></button>
 
 
-  </ion-list>
+    </ion-list>
 </ion-content>

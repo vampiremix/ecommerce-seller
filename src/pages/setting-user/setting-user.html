@@ -6,13 +6,49 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>settingUser</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>settingUser</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <ion-card>
+        <ion-card-header>
+            ชื่อผู้ใช้ : {{settingUser.userName}}
+        </ion-card-header>
+        <ion-card-content>
+
+        </ion-card-content>
+    </ion-card>
+
+    <ion-row text-center padding>
+        <ion-col col-12>
+            <label> เปลี่ยนรหัสผ่าน</label>
+        </ion-col>
+    </ion-row>
+
+    <ion-list padding>
+        <ion-item>
+            <ion-label>รหัสผ่านเดิม:</ion-label>
+            <ion-input type="password" [(ngModel)]="settingUser.passwordOld"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>รัหสผ่านใหม่:</ion-label>
+            <ion-input type="password" [(ngModel)]="settingUser.passwordNew"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>ยืนยันรหัสผ่าน:</ion-label>
+            <ion-input type="password" [(ngModel)]="settingUser.confirmPassword"></ion-input>
+        </ion-item>
+
+
+    </ion-list>
+    <div padding>
+        <button ion-button block color="secondary">บันทึก</button>
+    </div>
 
 </ion-content>

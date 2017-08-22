@@ -1,3 +1,4 @@
+import { signupService } from '../pages/signup/signup.service';
 import { SettingUserPage } from '../pages/setting-user/setting-user';
 import { SettingShopPage } from '../pages/setting-shop/setting-shop';
 import { ListProductComponent } from '../components/list-product/list-product';
@@ -54,6 +55,8 @@ import { PreloadImage } from '../components/preload-image/preload-image';
 import { BackgroundImage } from '../components/background-image/background-image';
 import { VideoPlayerModule } from '../components/video-player/video-player.module';
 import { ValidatorsModule } from '../components/validators/validators.module';
+import { ShowHideContainer } from '../components/show-hide-password/show-hide-container';
+import { ShowHideInput } from '../components/show-hide-password/show-hide-input';
 
 //page services
 import { ListingService } from '../pages/listing/listing.service';
@@ -69,8 +72,13 @@ import { RegisterComponent } from '../components/register/register';
 import { RegisterProfileComponent } from '../components/register-profile/register-profile';
 import { RegisterShopComponent } from '../components/register-shop/register-shop';
 import { HistoryComponent } from '../components/history/history';
+import { HomeManageOrderServiceProvider } from '../pages/home-manage-order/home-manage-order-service';
+import { SettingShopServiceProvider } from '../pages/setting-shop/setting-shop-service';
+import { SettingUserServiceProvider } from '../pages/setting-user/setting-user-service';
+import { ProductDetailServiceProvider } from '../pages/product-detail/product-detail-service';
 import { HistoryService } from '../pages/history/history.service';
 import { LoginService } from '../pages/login/login.service';
+
 
 
 export function createTranslateLoader(http: Http) {
@@ -110,6 +118,8 @@ export function createTranslateLoader(http: Http) {
     RegisterProfileComponent,
     RegisterShopComponent,
     HistoryComponent,
+    ShowHideContainer,
+    ShowHideInput,
   ],
   imports: [
     BrowserModule,
@@ -153,6 +163,7 @@ export function createTranslateLoader(http: Http) {
     NotificationsService,
     LoginService,
     HistoryService,
+    signupService,
     // FacebookLoginService,
     // GoogleLoginService,
     // TwitterLoginService,
@@ -173,7 +184,12 @@ export function createTranslateLoader(http: Http) {
     AppRate,
     ImagePicker,
     Crop,
-    EmailComposer
+    EmailComposer,
+
+    HomeManageOrderServiceProvider,
+    SettingShopServiceProvider,
+    SettingUserServiceProvider,
+    ProductDetailServiceProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

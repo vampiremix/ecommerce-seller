@@ -1,0 +1,20 @@
+{
+    "id": "product001",
+    "name": "Adidas",
+    "detail": "Adidas Stan Smith Core White Green",
+    "unitprice": 100,
+    "img": [{
+            "url": "http://media.office.co.uk/medias/sys_master/root/h10/h62/8962271871006.jpg?version=2.9.1",
+            "id": "img001"
+        },
+        {
+            "url": "http://media.office.co.uk/medias/sys_master/root/h3b/h62/8962273280030.jpg",
+            "id": "img002"
+        },
+        {
+            "url": "http://media.office.co.uk/medias/sys_master/root/h14/h62/8962272002078.jpg?version=2.9.1",
+            "id": "img003"
+        }
+    ],
+    "preparedays": 6
+}
