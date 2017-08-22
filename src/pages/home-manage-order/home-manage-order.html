@@ -15,22 +15,18 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item  >
+        <ion-item  *ngFor="let item of orders.listorders" (click)="presentActionSheet()">
+            <p>DocNo : {{item._id}}</p>
           <ion-thumbnail item-start>
-            <img src="img/thumbnail-totoro.png">
+            <img src="{{item.img}}">
           </ion-thumbnail>
-          <h2></h2>
-          <p>Hayao Miyazaki • 1988</p>
-          <!-- <button ion-button clear item-end>View</button> -->
+          <h2>{{item.productname}}</h2>
+          <p>จำนวน{{item.qty}}ชิ้น</p>
+          <p>ราคา{{item.amount}}บาท</p>
+          
+          
+          
         </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-              <img src="img/thumbnail-totoro.png">
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <!-- <button ion-button clear item-end>View</button> -->
-          </ion-item>
       </ion-list>
 
 
