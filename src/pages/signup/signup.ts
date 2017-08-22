@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, ModalController, LoadingController } from 'ionic-angular';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 
 import { TermsOfServicePage } from '../terms-of-service/terms-of-service';
 import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy';
 import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
+import { Slides } from 'ionic-angular';
+import { signupService } from "../signup/signup.service";
 
 // import { FacebookLoginService } from '../facebook-login/facebook-login.service';
 // import { GoogleLoginService } from '../google-login/google-login.service';
@@ -15,6 +17,7 @@ import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
   templateUrl: 'signup.html'
 })
 export class SignupPage {
+  @ViewChild(Slides) slides: Slides;
   signup: FormGroup;
   main_page: { component: any };
   loading: any;
@@ -22,6 +25,7 @@ export class SignupPage {
   constructor(
     public nav: NavController,
     public modal: ModalController,
+    public signupService: signupService,
     // public facebookLoginService: FacebookLoginService,
     // public googleLoginService: GoogleLoginService,
     // public twitterLoginService: TwitterLoginService,
@@ -30,14 +34,55 @@ export class SignupPage {
     this.main_page = { component: TabsNavigationPage };
 
     this.signup = new FormGroup({
+      firstName: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
+      tel: new FormControl('', Validators.required),
+      shopName: new FormControl('', Validators.required),
+      shopaddress: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
-      password: new FormControl('test', Validators.required),
-      confirm_password: new FormControl('test', Validators.required)
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      confirm_password: new FormControl('', Validators.required)
     });
   }
 
-  doSignup(){
-    this.nav.setRoot(this.main_page.component);
+  NextSignup() {
+    this.slides.slideNext();
+  }
+  Next2Signup() {
+    this.slides.slideNext();
+  }
+
+  doSignup() {
+    let data = {
+      username: this.signup.value.username,
+      firstName: this.signup.value.firstName,
+      lastName: this.signup.value.lastName,
+      email: this.signup.value.email,
+      tel: this.signup.value.tel,
+      password: this.signup.value.password,
+      shopName: this.signup.value.shopName,
+      shopaddress: this.signup.value.shopaddress
+    }
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.signup.value.email)) {
+      if (this.signup.value.password.length < 7) {
+        alert('Please input password at less 8 character');
+      } else if (this.signup.value.password !== this.signup.value.confirm_password) {
+        alert("Passwords do not match")
+      } else {
+        this.signupService.signup(data).then(res => {
+          localStorage.setItem('user', res);
+          this.nav.setRoot(this.main_page.component);
+        }).catch(err => {
+          let error = JSON.parse(err._body);
+          alert(error.message.replace("11000 duplicate key error collection: mean-secret.users index:", ""));
+        });
+      }
+    } else {
+      alert('email incorrect')
+    }
+    console.log(this.signup.value);
+    //this.nav.setRoot(this.main_page.component);
   }
 
   doFacebookSignup() {
