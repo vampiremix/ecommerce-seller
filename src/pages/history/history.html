@@ -9,10 +9,30 @@
   <ion-navbar>
     <ion-title>History</ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content>
+  <!-- <ion-toolbar no-border-top> -->
+  <ion-segment [(ngModel)]="history">
+    <ion-segment-button value="paid">
+      ได้รับเงินแล้ว
+    </ion-segment-button>
+    <ion-segment-button value="unpay">
+      ยังไม่ได้รับเงิน
+    </ion-segment-button>
+  </ion-segment>
+  <!-- </ion-toolbar> -->
 
-<ion-content padding>
+  <div [ngSwitch]="history">
+    <div *ngSwitchCase="'paid'">
+      <history [historyData]="historys.paid.listorder" [amount]="historys.paid.amount"></history>
+    </div>
+
+    <div *ngSwitchCase="'unpay'">
+      <history [historyData]="historys.unpay.listorder" [amount]="historys.unpay.amount"></history>
+    </div>
+  </div>
+
+
 
 </ion-content>

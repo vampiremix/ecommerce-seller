@@ -6,13 +6,35 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>ProductDetail</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>ProductDetail</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+    <ion-list>
+        <ion-item>
+            <h2> {{productDetail.name}}</h2>
+            <p>{{productDetail.detail}}</p>
+            <p style="color:red">{{productDetail.unitprice}} บาท </p>
+        </ion-item>
+    </ion-list>
+
+    <ion-slides pager style="margin-top:-130px;">
+
+        <ion-slide *ngFor="let image of productDetail.img">
+            <img width="20%" src="{{image.url}}">
+        </ion-slide>
+
+    </ion-slides>
+
+    <ion-list>
+        <ion-item>
+            <p>ระยะเวลาเตรียมของ : {{productDetail.preparedays}} วัน</p>
+        </ion-item>
+    </ion-list>
 
 </ion-content>
