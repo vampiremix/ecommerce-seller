@@ -1,4 +1,4 @@
-<!--
+<!-- <!--
   Generated template for the OrderDetailPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
@@ -12,72 +12,32 @@
 
 </ion-header>
 
-
 <ion-content padding>
-    <ion-card>
-        
-          <ion-item>
-            <ion-avatar item-start>
-             <!-- Head -->
-            </ion-avatar>
-            <p>DocNo</p>
-            <h2>NameProduct</h2>
-            <p>Description</p>
-            <p>Unitprice</p>
-          </ion-item>
-        
+    <ion-list>
+        <ion-item>
+            <h2> {{orderdetail.product.productname}}</h2>
+            <p>{{orderdetail.product.description}}</p>
+            <p style="color:red"> {{orderdetail.product.amount}} บาท </p>
+        </ion-item>
+    </ion-list>
+    <ion-slides pager style="margin-top:-130px;">
 
-          <!-- IMG -->
-          <img src="img/advance-card-bttf.png">
-        
-          <ion-card-content>
-            <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-          </ion-card-content>
-        
-          <ion-row>
-            <ion-col>
-              <button ion-button icon-left clear small>
-                <ion-icon name="thumbs-up"></ion-icon>
-                <div>12 Likes</div>
-              </button>
-            </ion-col>
-            <ion-col>
-              <button ion-button icon-left clear small>
-                <ion-icon name="text"></ion-icon>
-                <div>4 Comments</div>
-              </button>
-            </ion-col>
-            <ion-col center text-center>
-              <ion-note>
-                11h ago
-              </ion-note>
-            </ion-col>
-          </ion-row>
-        
-        </ion-card>
+        <ion-slide *ngFor="let image of orderdetail.product.img">
+              <img width="20%" src="{{image.url}}">
+        </ion-slide>
 
-
-
-
-
-  <!-- head -->
-  
-
-  <!-- IMG -->
-  <!-- <ion-grid>
-    <ion-row>
-
-
-      <ion-col col-6>Photo</ion-col>
-    </ion-row>
-  </ion-grid> -->
-  <!-- Shipping -->
-  <!-- <ion-grid>
-    <ion-row>
-      <ion-col col-12>Shipping</ion-col>
-
-
-    </ion-row>
-  </ion-grid> -->
+    </ion-slides>
+    <ion-list>
+        <ion-item>
+            <h2>Customer  </h2>
+            <p>ชื่อ {{orderdetail.customer.displayName}}</p>
+            <p> Tel. {{orderdetail.customer.tel}}</p>
+            <p>ที่อยู่ : {{orderdetail.customer.shipping.address}} ตำบล{{orderdetail.customer.shipping.subdistrict}} อำเภอ{{orderdetail.customer.shipping.district}}
+            </p>
+            <p> จังหวัด{{orderdetail.customer.shipping.province}} รหัสไปรษณีย์{{orderdetail.customer.shipping.postcode}} </p>
+            <p>รับออร์เดอร์: {{orderdetail.preparedays}}</p>
+        </ion-item>
+    </ion-list>
+    
 
 </ion-content>

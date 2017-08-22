@@ -1,9 +1,14 @@
-export class customer {
-    displayName: string;
-    tel: string;
-    address: address = new address();
+export class orderDetailModel {
+    product : product = new product();
+    customer: customer = new customer();
+    prepredays:string;
   }
   
+  export class customer {
+    displayName: string;
+    tel: string;
+    shipping: address = new address();
+  }
   export class address {
     address: string;
     subdistrict: string;
@@ -14,8 +19,12 @@ export class customer {
   
   export class product {
     name: string;
-    img: string;
+    img: Array<img>;
     qty: number;
     price: number;
     
+  }
+  export class img {
+    _id:string;
+    url:string;
   }

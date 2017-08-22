@@ -76,6 +76,7 @@ import { SettingUserServiceProvider } from '../pages/setting-user/setting-user-s
 import { ProductDetailServiceProvider } from '../pages/product-detail/product-detail-service';
 import { HistoryService } from '../pages/history/history.service';
 import { LoginService } from '../pages/login/login.service';
+import { OrderDetailServiceProvider } from '../pages/order-detail/order-detail-service';
 
 
 
@@ -185,7 +186,8 @@ export function createTranslateLoader(http: Http) {
     HomeManageOrderServiceProvider,
     SettingShopServiceProvider,
     SettingUserServiceProvider,
-    ProductDetailServiceProvider
+    ProductDetailServiceProvider,
+    OrderDetailServiceProvider
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
