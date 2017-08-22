@@ -1,0 +1,33 @@
+{
+    "docOrder": "Cf001",
+    "product" : {
+        "id": "product001",
+        "name": "NIKE",
+        "unitprice": 100,
+        "qty": 40,
+        "img": [
+            {
+                "url": "https://assets.wired.com/photos/w_1534/wp-content/uploads/2016/09/ff_nike-hyperadapt_angle_front.jpg",
+                "id": "img001"
+            },
+            {
+                "url": "http://www.sportsdirect.com/images/marketing/nikelanding-tainers.jpg",
+                "id": "img002"
+            }
+        ]
+    },
+    "customer": {
+        "displayname": "Phojchara",
+        "tel": "0959126917",
+        "shipping": [
+            {
+                "address": "68",
+                "district": "เมือง",
+                "subdistrict": "บางขะแยง",
+                "province": "ปทุมธานี",
+                "postcode ": "12000"
+            }
+        ]
+    },
+    "prepredays": "2วันที่แล้ว"
+}
