@@ -1,4 +1,3 @@
-import { LoginService } from '../pages/login/login.service';
 import { SettingUserPage } from '../pages/setting-user/setting-user';
 import { SettingShopPage } from '../pages/setting-shop/setting-shop';
 import { ListProductComponent } from '../components/list-product/list-product';
@@ -70,6 +69,8 @@ import { RegisterComponent } from '../components/register/register';
 import { RegisterProfileComponent } from '../components/register-profile/register-profile';
 import { RegisterShopComponent } from '../components/register-shop/register-shop';
 import { HistoryComponent } from '../components/history/history';
+import { HistoryService } from '../pages/history/history.service';
+import { LoginService } from '../pages/login/login.service';
 
 
 export function createTranslateLoader(http: Http) {
@@ -151,6 +152,7 @@ export function createTranslateLoader(http: Http) {
     ProfileService,
     NotificationsService,
     LoginService,
+    HistoryService,
     // FacebookLoginService,
     // GoogleLoginService,
     // TwitterLoginService,
