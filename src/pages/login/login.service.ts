@@ -4,7 +4,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { UserModel } from '../login/login.model';
 @Injectable()
 export class LoginService {
-    apiUrl: string = 'http://ecommerce-server.herokuapp.com/';
+    apiUrl: string = 'https://ecommerce-server.herokuapp.com/';
     headers = new Headers({
         'Content-Type': 'application/json'
     });
