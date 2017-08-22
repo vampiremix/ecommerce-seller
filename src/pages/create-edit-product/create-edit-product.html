@@ -1,77 +1,63 @@
-<!--
-  Generated template for the CreateEditProductPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  
-    <ion-navbar>
-      <ion-title>CreateEditProduct</ion-title>
-    </ion-navbar>
-  
-  </ion-header>
-  
-  
-  <ion-content padding>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6>ชื่อสินค้า</ion-col>
-        <ion-col col-6>
-          <ion-input type="text" placeholder="ชื่อสินค้า"></ion-input>
-        </ion-col>
-  
-        <ion-col col-6>รายละเอียดสินค้า</ion-col>
-        <ion-col col-6>
-          <ion-input type="text" placeholder="รายละเอียดสินค้า"></ion-input>
-        </ion-col>
-  
-        <ion-col col-6>ราคา</ion-col>
-        <ion-col col-6>
-          <ion-input type="text" placeholder="จำนวน"></ion-input>
-        </ion-col>
-  
-        <ion-col col-6>จำนวน</ion-col>
-        <ion-col col-6>
-          <ion-input type="text" placeholder="จำนวน"></ion-input>
-        </ion-col>
-  
-        <ion-col col-6>หน่วย</ion-col>
-        <ion-col col-6>
-          <ion-item>
-            <ion-label>ชิ้น</ion-label>
-            <ion-select [(ngModel)]="gender">
-              <ion-option value="f"> 1</ion-option>
-              <ion-option value="m">2</ion-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
-  
-  
-        <ion-col col-6>หมวด</ion-col>
-        <ion-col col-6>
-          <ion-item>
-            <ion-label>แฟชั่น</ion-label>
-            <ion-select [(ngModel)]="gender">
-              <ion-option value="f"> 1</ion-option>
-              <ion-option value="m">2</ion-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
-  
-  
-        <ion-col col-6>หมวดย่อย</ion-col>
-        <ion-col col-6>
-          <ion-item>
-            <ion-label>เสื้อ</ion-label>
-            <ion-select [(ngModel)]="gender">
-              <ion-option value="f"> 1</ion-option>
-              <ion-option value="m">2</ion-option>
-            </ion-select>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <button ion-button full style=" margin-top: 4cm;">บันทึก</button>
-  
-    </ion-grid>
-  </ion-content>
+
+  <ion-navbar>
+    <ion-title>เพิ่มสินค้า</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="uploadImgs()">
+          <ion-icon name="images"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="listing-content">
+  <ion-scroll scrollX="true" class="horizontal-categories">
+    <ion-row class="categories-row">
+      <ion-col width-30 class="horizontal-item" *ngFor="let data of [1,2,3,4,5,6,7]">
+        <preload-image [ratio]="{w:4, h:4}" src="http://www.sportsdirect.com/images/marketing/nikelanding-tainers.jpg"></preload-image>
+        <span class="trash"><ion-icon name="trash"></ion-icon></span>
+      </ion-col>
+    </ion-row>
+  </ion-scroll>
+
+  <ion-list padding>
+    <ion-item>
+      <ion-input type="text" placeholder="ชื่อสินค้า" [(ngModel)]="product.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="รายละเอียดสินค้า" [(ngModel)]="product.desc"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="ราคา" [(ngModel)]="product.price"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="จำนวน" [(ngModel)]="product.qty"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>หน่วย</ion-label>
+      <ion-select [(ngModel)]="product.unit">
+        <ion-option value="ชิ้น">ชิ้น</ion-option>
+        <ion-option value="อัน">อัน</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>หมวด</ion-label>
+      <ion-select [(ngModel)]="product.group">
+        <ion-option value="เสื้อผ้าแฟชั่น">เสื้อผ้าแฟชั่น</ion-option>
+        <ion-option value="เครื่องใช้ไฟฟ้า">เครื่องใช้ไฟฟ้า</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>หมวดย่อย</ion-label>
+      <ion-select [(ngModel)]="product.subgroup">
+        <ion-option value="เสื้อ">เสื้อ</ion-option>
+        <ion-option value="กางเกง">กางเกง</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <button ion-button block class="auth-action-button signup-button" style="margin-top:20px" (click)="saveProduct()">{{'บันทึก' | translate}}</button>
+
+  </ion-list>
+</ion-content>
