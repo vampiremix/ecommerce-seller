@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>เพิ่มสินค้า</ion-title>
+    <ion-title>Product</ion-title>
     <ion-buttons start>
       <button ion-button icon-only color="royal" (click)="uploadImgs()">
           <ion-icon name="images"></ion-icon>
@@ -29,40 +29,32 @@
 
   <ion-list padding>
     <ion-item>
-      <ion-input type="text" placeholder="ชื่อสินค้า" [(ngModel)]="product.name"></ion-input>
+      <ion-input type="text" placeholder="Product name" [(ngModel)]="product.name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" placeholder="รายละเอียดสินค้า" [(ngModel)]="product.desc"></ion-input>
+      <ion-input type="text" placeholder="Product detail" [(ngModel)]="product.desc"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" placeholder="ราคา" [(ngModel)]="product.price"></ion-input>
+      <ion-input type="text" placeholder="Product price" [(ngModel)]="product.price"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" placeholder="จำนวน" [(ngModel)]="product.qty"></ion-input>
+      <ion-input type="text" placeholder="qty" [(ngModel)]="product.qty"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>หน่วย</ion-label>
-      <ion-select [(ngModel)]="product.unit">
-        <ion-option value="ชิ้น">ชิ้น</ion-option>
-        <ion-option value="อัน">อัน</ion-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-label>หมวด</ion-label>
+      <ion-label class="margin-item">Category</ion-label>
       <ion-select [(ngModel)]="product.group">
-        <ion-option value="เสื้อผ้าแฟชั่น">เสื้อผ้าแฟชั่น</ion-option>
-        <ion-option value="เครื่องใช้ไฟฟ้า">เครื่องใช้ไฟฟ้า</ion-option>
+        <ion-option value="fashion">fashion</ion-option>
+        <ion-option value="electronic">Electronic</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>หมวดย่อย</ion-label>
+      <ion-label class="margin-item">Sub category</ion-label>
       <ion-select [(ngModel)]="product.subgroup">
-        <ion-option value="เสื้อ">เสื้อ</ion-option>
-        <ion-option value="กางเกง">กางเกง</ion-option>
+        <ion-option value="shirt">shirt</ion-option>
       </ion-select>
     </ion-item>
 
-    <button ion-button block class="auth-action-button signup-button" style="margin-top:20px" (click)="saveProduct()">{{'บันทึก' | translate}}</button>
+    <button ion-button block class="auth-action-button signup-button" style="margin-top:20px" (click)="saveProduct()">{{'Save' | translate}}</button>
 
   </ion-list>
 </ion-content>
