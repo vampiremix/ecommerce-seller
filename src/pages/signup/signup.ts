@@ -7,6 +7,7 @@ import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy';
 import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
 import { Slides } from 'ionic-angular';
 import { signupService } from "../signup/signup.service";
+import { DatasendModel } from "./signup.model";
 
 // import { FacebookLoginService } from '../facebook-login/facebook-login.service';
 // import { GoogleLoginService } from '../google-login/google-login.service';
@@ -23,18 +24,7 @@ export class SignupPage {
   signupshop: FormGroup;
   main_page: { component: any };
   loading: any;
-  public datasend = {
-    "username": "",
-    "password": "",
-    "confirm_password": "",
-    "firstName": "",
-    "lastName": "",
-    "email": "",
-    "tel": "",
-    "shopName": "",
-    "roles": ["seller"]
-
-  };
+  dataSend: DatasendModel = new DatasendModel();
 
   constructor(
     public nav: NavController,
@@ -75,24 +65,25 @@ export class SignupPage {
 
 
   NextSignup() {
-    this.datasend.username = this.signup.value.username;
-    this.datasend.password = this.signup.value.password;
-    this.datasend.confirm_password = this.signup.value.confirm_password;
-    console.log(this.datasend);
-    if (this.datasend.password.length < 7) {
+    this.dataSend.username = this.signup.value.username;
+    this.dataSend.password = this.signup.value.password;
+    this.dataSend.confirm_password = this.signup.value.confirm_password;
+    console.log(this.dataSend);
+    if (this.dataSend.password.length < 7) {
       alert('Please input password at less 8 character');
-    } else if (this.datasend.password !== this.datasend.confirm_password) {
+    } else if (this.dataSend.password !== this.dataSend.confirm_password) {
       alert("Passwords do not match");
     } else {
       this.slides.slideNext();
     }
   }
   Next2Signup() {
-    this.datasend.firstName = this.signupprofile.value.firstName;
-    this.datasend.lastName = this.signupprofile.value.lastName;
-    this.datasend.email = this.signupprofile.value.email;
-    this.datasend.tel = this.signupprofile.value.tel;
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.datasend.email)) {
+    this.dataSend.firstName = this.signupprofile.value.firstName;
+    this.dataSend.lastName = this.signupprofile.value.lastName;
+    this.dataSend.email = this.signupprofile.value.email;
+    this.dataSend.tel = this.signupprofile.value.tel;
+    console.log(this.dataSend);
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.dataSend.email)) {
       this.slides.slideNext();
     } else {
       alert('email incorrect');
@@ -100,9 +91,9 @@ export class SignupPage {
   }
 
   doSignup() {
-    this.datasend.shopName = this.signupshop.value.shopName;
+    this.dataSend.shop.name = this.signupshop.value.shopName;
     this.nav.setRoot(this.main_page.component);
-    console.log(this.datasend);
+    console.log(this.dataSend);
 
   }
 
