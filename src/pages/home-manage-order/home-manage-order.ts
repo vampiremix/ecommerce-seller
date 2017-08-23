@@ -55,7 +55,7 @@ export class HomeManageOrderPage {
     console.log('ionViewDidLoad HomeManageOrderPage');
   }
 // buttonsข้างล่าง
-  presentActionSheet() {
+  presentActionSheet(item) {
     let actionSheet = this.actionSheetCtrl.create({
      
       buttons: [

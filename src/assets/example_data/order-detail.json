@@ -2,7 +2,7 @@
     "_id": "Cf001",
     "product" : {
         "id": "product001",
-        "productname": "NIKE",
+        "name": "NIKE",
         "description" : "description",
         "amount": 100,
         "qty": 40,

@@ -6,21 +6,30 @@
 -->
 <ion-header>
 
-    <ion-navbar>
-        <ion-title>Setting</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <ion-title>Setting</ion-title>
+  </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-    <ion-list>
-        <button ion-item class="app-font-13" (click)="HistoryPage()"><ion-icon name="ios-clock-outline">ประวัติการขาย</ion-icon></button>
-
-        <button ion-item class="app-font-13" (click)="SettingShopPage()"><ion-icon name="ios-home-outline">จัดการข้อมูลร้าน</ion-icon></button>
-
-        <button ion-item class="app-font-13" (click)="SettingUserPage()"><ion-icon name="ios-construct-outline">ตั้งค่าบัญชีผู้ใช้ทั่วไป</ion-icon></button>
-
-
-    </ion-list>
+<ion-content>
+  <ion-list>
+    <ion-item (click)="HistoryPage()">
+      <ion-icon name="ios-clock-outline" item-start></ion-icon>
+      History
+    </ion-item>
+    <ion-item (click)="SettingShopPage()">
+      <ion-icon name="ios-home-outline" item-start></ion-icon>
+      Shop profile
+    </ion-item>
+    <ion-item (click)="SettingUserPage()">
+      <ion-icon name="ios-construct-outline" item-start></ion-icon>
+      Account
+    </ion-item>
+    <ion-item (click)="onLogOut()">
+        <ion-icon name="ios-lock-outline" item-start></ion-icon>
+        Log Out
+      </ion-item>
+  </ion-list>
 </ion-content>

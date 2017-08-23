@@ -12,30 +12,33 @@
 
 </ion-header>
 
-<ion-content padding>
-    <ion-list>
-        <ion-item>
-            <h2> {{orderdetail.product.productname}}</h2>
-            <p>{{orderdetail.product.description}}</p>
-            <p style="color:red"> {{orderdetail.product.amount}} บาท </p>
-        </ion-item>
-    </ion-list>
-    <ion-slides pager style="margin-top:-130px;">
-
-        <ion-slide *ngFor="let image of orderdetail.product.img">
-              <img width="20%" src="{{image.url}}">
-        </ion-slide>
-
-    </ion-slides>
-    <ion-list>
-        <ion-item>
-            <h2>Customer  </h2>
-            <p>ชื่อ {{orderdetail.customer.displayName}}</p>
-            <p> Tel. {{orderdetail.customer.tel}}</p>
-            <p>ที่อยู่ : {{orderdetail.customer.shipping.address}} ตำบล{{orderdetail.customer.shipping.subdistrict}} อำเภอ{{orderdetail.customer.shipping.district}}
-            </p>
-            <p> จังหวัด{{orderdetail.customer.shipping.province}} รหัสไปรษณีย์{{orderdetail.customer.shipping.postcode}} </p>
-            <p>รับออร์เดอร์: {{orderdetail.preparedays}}</p>
-        </ion-item>
-    </ion-list>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <h2> {{orderdetail.product.name}}</h2>
+      <p>{{orderdetail.product.description}}</p>
+      <p style="color:red"> {{orderdetail.product.amount}} บาท </p>
+    </ion-item>
+  </ion-list>
+  <ion-slides pager style="margin-top:-130px;">
+    <ion-slide *ngFor="let image of orderdetail.product.img">
+      <img width="20%" src="{{image.url}}">
+    </ion-slide>
+  </ion-slides>
+  <ion-item-group>
+    <ion-item-divider color="light">Customer</ion-item-divider>
+    <ion-item>Name
+      <p> {{orderdetail.customer.displayName}} </p>
+    </ion-item>
+    <ion-item>Tel.
+      <p> {{orderdetail.customer.tel}} </p>
+    </ion-item>
+    <ion-item>Address
+      <p>{{orderdetail.customer.shipping.address}} {{orderdetail.customer.shipping.subdistrict}} {{orderdetail.customer.shipping.district}}
+        {{orderdetail.customer.shipping.province}} {{orderdetail.customer.shipping.postcode}}</p>
+    </ion-item>
+    <ion-item>Day
+      <p>{{orderdetail.preparedays}}</p>
+    </ion-item>
+  </ion-item-group>
 </ion-content>

@@ -20,7 +20,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make WalkthroughPage the root (or first) page
-  rootPage: any = WalkthroughPage;
+  rootPage: any;
   
   textDir: string = "ltr";
 
@@ -36,6 +36,13 @@ export class MyApp {
     public translate: TranslateService,
     public toastCtrl: ToastController
   ) {
+    
+    let user = JSON.parse(window.localStorage.getItem('userShop'));
+    if(user){
+      this.rootPage = TabsNavigationPage;
+    }else{
+      this.rootPage = WalkthroughPage;
+    }
     translate.setDefaultLang('en');
     translate.use('en');
 

@@ -57,7 +57,7 @@ import { VideoPlayerModule } from '../components/video-player/video-player.modul
 import { ValidatorsModule } from '../components/validators/validators.module';
 import { ShowHideContainer } from '../components/show-hide-password/show-hide-container';
 import { ShowHideInput } from '../components/show-hide-password/show-hide-input';
-
+import { TopbarComponent } from "../components/topbar/topbar";
 //page services
 import { ListingService } from '../pages/listing/listing.service';
 import { ProfileService } from '../pages/profile/profile.service';
@@ -106,8 +106,7 @@ export function createTranslateLoader(http: Http) {
     SettingPage,
     HistoryPage,
     SettingShopPage,
-    SettingUserPage,
-
+    SettingUserPage,    
 
     PreloadImage,
     BackgroundImage,
@@ -118,6 +117,7 @@ export function createTranslateLoader(http: Http) {
     HistoryComponent,
     ShowHideContainer,
     ShowHideInput,
+    TopbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -155,6 +155,7 @@ export function createTranslateLoader(http: Http) {
     SettingShopPage,
     SettingUserPage,
     ListProductComponent
+    
   ],
   providers: [
     ListingService,
