@@ -103,6 +103,7 @@ export class SignupPage {
 
   doSignup() {
     this.dataSend.shop.name = this.signupshop.value.shopName;
+    this.dataSend.roles['seller'];
     this.nav.setRoot(this.main_page.component);
     console.log(this.dataSend);
 
