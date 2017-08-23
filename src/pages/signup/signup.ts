@@ -19,8 +19,22 @@ import { signupService } from "../signup/signup.service";
 export class SignupPage {
   @ViewChild(Slides) slides: Slides;
   signup: FormGroup;
+  signupprofile: FormGroup;
+  signupshop: FormGroup;
   main_page: { component: any };
   loading: any;
+  public datasend = {
+    "username": "",
+    "password": "",
+    "confirm_password": "",
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "tel": "",
+    "shopName": "",
+    "roles": ["seller"]
+
+  };
 
   constructor(
     public nav: NavController,
@@ -34,50 +48,62 @@ export class SignupPage {
     this.main_page = { component: TabsNavigationPage };
 
     this.signup = new FormGroup({
-      firstName: new FormControl('', Validators.required),
-      lastName: new FormControl('', Validators.required),
-      tel: new FormControl('', Validators.required),
-      shopName: new FormControl('', Validators.required),
-      shopaddress: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       confirm_password: new FormControl('', Validators.required)
     });
+
+    this.signupprofile = new FormGroup({
+      firstName: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      tel: new FormControl('', Validators.required)
+    });
+
+    this.signupshop = new FormGroup({
+      shopName: new FormControl('', Validators.required)
+    });
   }
 
+  BacksignupProfile() {
+    this.slides.slidePrev();
+  }
+
+  BacksignupShop() {
+    this.slides.slidePrev();
+  }
+
+
   NextSignup() {
-    this.slides.slideNext();
+    this.datasend.username = this.signup.value.username;
+    this.datasend.password = this.signup.value.password;
+    this.datasend.confirm_password = this.signup.value.confirm_password;
+    console.log(this.datasend);
+    if (this.datasend.password.length < 7) {
+      alert('Please input password at less 8 character');
+    } else if (this.datasend.password !== this.datasend.confirm_password) {
+      alert("Passwords do not match");
+    } else {
+      this.slides.slideNext();
+    }
   }
   Next2Signup() {
-    this.slides.slideNext();
+    this.datasend.firstName = this.signupprofile.value.firstName;
+    this.datasend.lastName = this.signupprofile.value.lastName;
+    this.datasend.email = this.signupprofile.value.email;
+    this.datasend.tel = this.signupprofile.value.tel;
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.datasend.email)) {
+      this.slides.slideNext();
+    } else {
+      alert('email incorrect');
+    }
   }
 
   doSignup() {
-    let data = {
-      username: this.signup.value.username,
-      firstName: this.signup.value.firstName,
-      lastName: this.signup.value.lastName,
-      email: this.signup.value.email,
-      tel: this.signup.value.tel,
-      password: this.signup.value.password,
-      shopName: this.signup.value.shopName,
-      shopaddress: this.signup.value.shopaddress
-    }
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.signup.value.email)) {
-      if (this.signup.value.password.length < 7) {
-        alert('Please input password at less 8 character');
-      } else if (this.signup.value.password !== this.signup.value.confirm_password) {
-        alert("Passwords do not match")
-      } else {
-          this.nav.setRoot(this.main_page.component);
-        
-      }
-    } else {
-      alert('email incorrect')
-    }
-    console.log(this.signup.value);
-    //this.nav.setRoot(this.main_page.component);
+    this.datasend.shopName = this.signupshop.value.shopName;
+    this.nav.setRoot(this.main_page.component);
+    console.log(this.datasend);
+
   }
 
   doFacebookSignup() {

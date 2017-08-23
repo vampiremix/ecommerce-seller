@@ -5,13 +5,13 @@
 </ion-header>
 
 <ion-content class="signup-content auth-content">
-  <ion-slides #slides pager="true">
+  <ion-slides #slides>
     <ion-slide class="slide-1">
       <h2 class="auth-title">{{'CREATE_AN_ACCOUNT' | translate}}</h2>
       <form class="signup-form auth-form" [formGroup]="signup" (ngSubmit)="NextSignup()">
-          <ion-item>
-            <ion-input type="username" placeholder="username" formControlName="username"></ion-input>
-          </ion-item>
+        <ion-item>
+          <ion-input type="username" placeholder="username" formControlName="username"></ion-input>
+        </ion-item>
         <show-hide-container>
           <ion-item>
             <ion-input type="password" placeholder="Password" formControlName="password" show-hide-input></ion-input>
@@ -22,7 +22,7 @@
             <ion-input type="password" placeholder="Confirm password" formControlName="confirm_password" show-hide-input></ion-input>
           </ion-item>
         </show-hide-container>
-        <button ion-button btnSize class="auth-action-button signup-button" type="submit">{{'NEXT' | translate}}</button>
+        <button ion-button btnSize class="auth-action-button signup-button" type="submit" [disabled]="!signup.valid">{{'NEXT' | translate}}</button>
       </form>
       <p class="auth-divider">
         Or
@@ -35,7 +35,7 @@
 
     <ion-slide class="slide-2">
       <h2 class="auth-title">{{'CREATE_AN_PROFILE' | translate}}</h2>
-      <form class="signup-form auth-form" [formGroup]="signup" (ngSubmit)="Next2Signup()">
+      <form class="signup-form auth-form" [formGroup]="signupprofile" >
         <ion-item>
           <ion-input type="firstName" placeholder="first name" formControlName="firstName"></ion-input>
         </ion-item>
@@ -48,26 +48,42 @@
         <ion-item>
           <ion-input type="tel" placeholder="tel" formControlName="tel"></ion-input>
         </ion-item>
-        <button ion-button btnSize class="auth-action-button signup-button" type="submit">{{'NEXT' | translate}}</button>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <button ion-button btnSize class="auth-action-button signup-button" type="submit" (click)="BacksignupProfile()">{{'BACK' | translate}}</button>
+            </ion-col>
+            <ion-col>
+              <button ion-button btnSize class="auth-action-button signup-button" type="submit" [disabled]="!signupprofile.valid" (click)="Next2Signup()">{{'NEXT' | translate}}</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </form>
       <p class="auth-divider">
         Or
       </p>
       <button ion-button btnSize class="facebook-auth-button" (click)="doFacebookSignup()">{{'SIGN_UP_WITH_FACEBOOK' | translate}}</button>
+
       <p class="legal-stuff">
         {{'AGREEMENT_TEXT' | translate}} <a class="legal-action" (click)="showPrivacyModal()">{{'PRIVACY_POLICY' | translate}}</a>        {{'AND' | translate}} <a class="legal-action" (click)="showTermsModal()">{{'TERMS_OF_USE' | translate}}</a>
       </p>
     </ion-slide>
     <ion-slide class="slide-3">
       <h2 class="auth-title">{{'CREATE_AN_SHOP' | translate}}</h2>
-      <form class="signup-form auth-form" [formGroup]="signup" (click)="doSignup()">
+      <form class="signup-form auth-form" [formGroup]="signupshop" >
         <ion-item>
-          <ion-input type="shopName" placeholder="shop ame" formControlName="shopName"></ion-input>
+          <ion-input type="shopName" placeholder="shop name" formControlName="shopName"></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-input type="shopaddress" placeholder="shop address" formControlName="shopaddress"></ion-input>
-        </ion-item>
-        <button ion-button btnSize class="auth-action-button signup-button" type="submit" [disabled]="!signup.valid">{{'SIGN_UP' | translate}}</button>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <button ion-button btnSize class="auth-action-button signup-button" type="submit" (click)="BacksignupShop()">{{'BACK' | translate}}</button>
+            </ion-col>
+            <ion-col>
+              <button ion-button btnSize class="auth-action-button signup-button" type="submit" [disabled]="!signupshop.valid" (click)="doSignup()">{{'SIGN_UP' | translate}}</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </form>
       <p class="auth-divider">
         Or
@@ -78,7 +94,4 @@
       </p>
     </ion-slide>
   </ion-slides>
-
-
-
 </ion-content>

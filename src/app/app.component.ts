@@ -8,7 +8,7 @@ import { WalkthroughPage } from '../pages/walkthrough/walkthrough';
 import { TabsNavigationPage } from '../pages/tabs-navigation/tabs-navigation';
 import { HomeManageOrderPage } from '../pages/home-manage-order/home-manage-order';
 import { OrderDetailPage } from '../pages/order-detail/order-detail';
-
+import { SignupPage } from "../pages/signup/signup";
 
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
@@ -21,7 +21,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make WalkthroughPage the root (or first) page
-  rootPage: any = TabsNavigationPage;
+  rootPage: any = SignupPage;
   
   textDir: string = "ltr";
 
