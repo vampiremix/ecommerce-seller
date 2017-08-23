@@ -1,3 +1,19 @@
-history {
+history {}
 
+.segment-md .segment-button.segment-activated {
+    border-color: #387ef5;
+    opacity: 1;
+    font-size: 120% !important;
+    font-weight: 600;
+}
+
+.segment-ios .segment-button.segment-activated {
+    border-color: #387ef5;
+    opacity: 1;
+    font-size: 120% !important;
+    font-weight: 600;
+}
+
+.segment-button {
+    font-size: 120% !important;
 }

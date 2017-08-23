@@ -6,10 +6,10 @@ import { Observable } from 'rxjs/Observable';
 
 import { WalkthroughPage } from '../pages/walkthrough/walkthrough';
 import { TabsNavigationPage } from '../pages/tabs-navigation/tabs-navigation';
+
 import { HomeManageOrderPage } from '../pages/home-manage-order/home-manage-order';
 import { OrderDetailPage } from '../pages/order-detail/order-detail';
 import { SignupPage } from "../pages/signup/signup";
-
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
@@ -37,6 +37,13 @@ export class MyApp {
     public translate: TranslateService,
     public toastCtrl: ToastController
   ) {
+    
+    let user = JSON.parse(window.localStorage.getItem('userShop'));
+    if(user){
+      this.rootPage = TabsNavigationPage;
+    }else{
+      this.rootPage = WalkthroughPage;
+    }
     translate.setDefaultLang('en');
     translate.use('en');
 

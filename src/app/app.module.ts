@@ -57,7 +57,7 @@ import { VideoPlayerModule } from '../components/video-player/video-player.modul
 import { ValidatorsModule } from '../components/validators/validators.module';
 import { ShowHideContainer } from '../components/show-hide-password/show-hide-container';
 import { ShowHideInput } from '../components/show-hide-password/show-hide-input';
-
+import { TopbarComponent } from "../components/topbar/topbar";
 //page services
 import { ListingService } from '../pages/listing/listing.service';
 import { ProfileService } from '../pages/profile/profile.service';
@@ -66,8 +66,6 @@ import { NotificationsService } from '../pages/notifications/notifications.servi
 
 //providers
 import { LanguageService } from '../providers/language/language.service';
-import { SearchProductlistComponent } from '../components/search-productlist/search-productlist';
-import { ActionSheetsComponent } from '../components/action-sheets/action-sheets';
 import { RegisterComponent } from '../components/register/register';
 import { RegisterProfileComponent } from '../components/register-profile/register-profile';
 import { RegisterShopComponent } from '../components/register-shop/register-shop';
@@ -78,6 +76,8 @@ import { SettingUserServiceProvider } from '../pages/setting-user/setting-user-s
 import { ProductDetailServiceProvider } from '../pages/product-detail/product-detail-service';
 import { HistoryService } from '../pages/history/history.service';
 import { LoginService } from '../pages/login/login.service';
+import { OrderDetailServiceProvider } from '../pages/order-detail/order-detail-service';
+import { ProductlistService } from "../pages/manage-product/manage-product.service";
 
 
 
@@ -106,20 +106,18 @@ export function createTranslateLoader(http: Http) {
     SettingPage,
     HistoryPage,
     SettingShopPage,
-    SettingUserPage,
-
+    SettingUserPage,    
 
     PreloadImage,
     BackgroundImage,
-    SearchProductlistComponent,
     ListProductComponent,
-    ActionSheetsComponent,
     RegisterComponent,
     RegisterProfileComponent,
     RegisterShopComponent,
     HistoryComponent,
     ShowHideContainer,
     ShowHideInput,
+    TopbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -155,7 +153,9 @@ export function createTranslateLoader(http: Http) {
     SettingPage,
     HistoryPage,
     SettingShopPage,
-    SettingUserPage
+    SettingUserPage,
+    ListProductComponent
+    
   ],
   providers: [
     ListingService,
@@ -189,7 +189,9 @@ export function createTranslateLoader(http: Http) {
     HomeManageOrderServiceProvider,
     SettingShopServiceProvider,
     SettingUserServiceProvider,
-    ProductDetailServiceProvider
+    ProductDetailServiceProvider,
+    OrderDetailServiceProvider,
+    ProductlistService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

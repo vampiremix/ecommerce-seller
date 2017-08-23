@@ -48,7 +48,7 @@ export class LoginPage {
       console.log(data);
       if (data.roles == "seller") {
         loading.dismiss();
-        localStorage.setItem('user', JSON.stringify(data));
+        localStorage.setItem('userShop', JSON.stringify(data));
         this.nav.setRoot(this.main_page.component);
       } else {
         loading.dismiss();
@@ -59,7 +59,6 @@ export class LoginPage {
       alert("Username or password is not correct");
       loading.dismiss();
     });
-
     // Loogin Local
     // let loading = this.loadingCtrl.create({
     //   content: 'Please wait...'
@@ -77,7 +76,10 @@ export class LoginPage {
     // });
 
   }
-
+  
+  goToSignup() {
+    this.nav.push(SignupPage);
+  }
 
 
 }
