@@ -35,7 +35,7 @@
 
     <ion-slide class="slide-2">
       <h2 class="auth-title">{{'CREATE_AN_PROFILE' | translate}}</h2>
-      <form class="signup-form auth-form" [formGroup]="signupprofile" >
+      <form class="signup-form auth-form" [formGroup]="signupprofile">
         <ion-item>
           <ion-input type="firstName" placeholder="first name" formControlName="firstName"></ion-input>
         </ion-item>
@@ -68,9 +68,10 @@
         {{'AGREEMENT_TEXT' | translate}} <a class="legal-action" (click)="showPrivacyModal()">{{'PRIVACY_POLICY' | translate}}</a>        {{'AND' | translate}} <a class="legal-action" (click)="showTermsModal()">{{'TERMS_OF_USE' | translate}}</a>
       </p>
     </ion-slide>
+
     <ion-slide class="slide-3">
       <h2 class="auth-title">{{'CREATE_AN_SHOP' | translate}}</h2>
-      <form class="signup-form auth-form" [formGroup]="signupshop" >
+      <form class="signup-form auth-form" [formGroup]="signupshop">
         <ion-item>
           <ion-input type="shopName" placeholder="shop name" formControlName="shopName"></ion-input>
         </ion-item>

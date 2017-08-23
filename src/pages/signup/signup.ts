@@ -25,7 +25,6 @@ export class SignupPage {
   main_page: { component: any };
   loading: any;
   dataSend: DatasendModel = new DatasendModel();
-
   constructor(
     public nav: NavController,
     public modal: ModalController,
@@ -54,13 +53,21 @@ export class SignupPage {
       shopName: new FormControl('', Validators.required)
     });
   }
+  ngAfterViewInit() {
+    // child is set
+    this.slides.lockSwipes(true);
+  }
 
   BacksignupProfile() {
+    this.slides.lockSwipes(false);
     this.slides.slidePrev();
+    this.slides.lockSwipes(true);
   }
 
   BacksignupShop() {
+    this.slides.lockSwipes(false);
     this.slides.slidePrev();
+    this.slides.lockSwipes(true);
   }
 
 
@@ -74,7 +81,9 @@ export class SignupPage {
     } else if (this.dataSend.password !== this.dataSend.confirm_password) {
       alert("Passwords do not match");
     } else {
+      this.slides.lockSwipes(false);
       this.slides.slideNext();
+      this.slides.lockSwipes(true);
     }
   }
   Next2Signup() {
@@ -84,7 +93,9 @@ export class SignupPage {
     this.dataSend.tel = this.signupprofile.value.tel;
     console.log(this.dataSend);
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.dataSend.email)) {
+      this.slides.lockSwipes(false);
       this.slides.slideNext();
+      this.slides.lockSwipes(true);
     } else {
       alert('email incorrect');
     }
