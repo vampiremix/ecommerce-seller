@@ -114,11 +114,10 @@ export class SignupPage {
     this.dataSend.address.postcode = this.signupshop.value.postcode;
     this.dataSend.address.province = this.signupshop.value.province;
     this.dataSend.address.subdistrict = this.signupshop.value.subdistrict;
-
     this.dataSend.roles = ['seller'];
-    this.dataSend.address.firstName = ['amonrat'];
-    this.dataSend.address.lastName = ['chantawon'];
-    this.dataSend.address.tel = ['0934524524'];
+    this.dataSend.address.firstName = 'amonrat';
+    this.dataSend.address.lastName = 'chantawon';
+    this.dataSend.address.tel = '0934524524';
 
     this.nav.setRoot(this.main_page.component);
     console.log(this.dataSend);

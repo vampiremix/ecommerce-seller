@@ -16,12 +16,12 @@ export class ShopModel {
 }
 
 export class Address {
-    address: String
-    postcode: String
-    subdistrict: String
-    province: String
-    district: String
-    firstName: Array<string>
-    lastName: Array<string>
-    tel: Array<string>
+    address: String;
+    postcode: String;
+    subdistrict: String;
+    province: String;
+    district: String;
+    firstName: String;
+    lastName: String;
+    tel: String;
 }
