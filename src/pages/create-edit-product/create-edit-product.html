@@ -42,15 +42,15 @@
     </ion-item>
     <ion-item>
       <ion-label class="margin-item">Category</ion-label>
-      <ion-select [(ngModel)]="product.group">
-        <ion-option value="fashion">fashion</ion-option>
-        <ion-option value="electronic">Electronic</ion-option>
+      <ion-select [(ngModel)]="selectedCate" (ionChange)="selected()">
+        <ion-option [value]="cat" *ngFor="let cat of cate.categorys" [selected]="cat._id === selectedCate._id">{{cat.name}}</ion-option>
+        <!-- <ion-option value="electronic">Electronic</ion-option> -->
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label class="margin-item">Sub category</ion-label>
-      <ion-select [(ngModel)]="product.subgroup">
-        <ion-option value="shirt">shirt</ion-option>
+      <ion-select [(ngModel)]="selectedSubCate" [disabled]="!selectedCate">
+        <ion-option [value]="subcat" *ngFor="let subcat of subcate.categorys">{{subcat.name}}</ion-option>
       </ion-select>
     </ion-item>
 
