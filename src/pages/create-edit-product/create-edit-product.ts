@@ -1,5 +1,7 @@
+import { CategoryListModel, CategoryModel } from './create-edit-product.model';
+import { CreateProductService } from './create-product.service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, NavParams, ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -8,15 +10,46 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class CreateEditProductPage {
   private product: any = {};
-
-  constructor(public viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams) {
+  category: CategoryListModel = new CategoryListModel();
+  cate: CategoryListModel = new CategoryListModel();
+  subcate: CategoryListModel = new CategoryListModel();
+  selectedCate: CategoryModel = new CategoryModel();
+  selectedSubCate: CategoryModel = new CategoryModel();
+  constructor(public viewCtrl: ViewController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public createProductService: CreateProductService,
+    public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
-
+    this.getCate();
   }
 
-  closeModal(){
+  getCate() {
+    let loading = this.loadingCtrl.create();
+    loading.present();
+    this.createProductService.getCategory().then(res => {
+      this.category.categorys = res;
+      this.cate.categorys = this.category.categorys.filter((obj) => {
+        return obj.parent === "";
+      });
+      // console.log("LOGG : " + this.cate.categorys);
+      console.log(res);
+      loading.dismiss();
+    }, err => {
+      console.log(err);
+      loading.dismiss();
+    });
+  }
+
+  selected() {
+    this.subcate.categorys = this.category.categorys.filter((obj) => {
+      return obj.parent === this.selectedCate._id;
+    });
+  }
+
+  closeModal() {
     this.viewCtrl.dismiss();
   }
 

@@ -7,8 +7,21 @@ export class DatasendModel {
     email: string;
     tel: string;
     shop: ShopModel = new ShopModel();
-    roles: Array<string>
+    address: Address = new Address();
+    roles: Array<string>;
+
 }
 export class ShopModel {
     name: string;
+}
+
+export class Address {
+    address: string;
+    postcode: string;
+    subdistrict: string;
+    province: string;
+    district: string;
+    firstname: string;
+    lastname: string;
+    tel: string;
 }

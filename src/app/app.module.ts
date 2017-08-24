@@ -1,3 +1,4 @@
+import { CreateProductService } from '../pages/create-edit-product/create-product.service';
 import { signupService } from '../pages/signup/signup.service';
 import { SettingUserPage } from '../pages/setting-user/setting-user';
 import { SettingShopPage } from '../pages/setting-shop/setting-shop';
@@ -106,7 +107,7 @@ export function createTranslateLoader(http: Http) {
     SettingPage,
     HistoryPage,
     SettingShopPage,
-    SettingUserPage,    
+    SettingUserPage,
 
     PreloadImage,
     BackgroundImage,
@@ -155,7 +156,7 @@ export function createTranslateLoader(http: Http) {
     SettingShopPage,
     SettingUserPage,
     ListProductComponent
-    
+
   ],
   providers: [
     ListingService,
@@ -191,7 +192,8 @@ export function createTranslateLoader(http: Http) {
     SettingUserServiceProvider,
     ProductDetailServiceProvider,
     OrderDetailServiceProvider,
-    ProductlistService
+    ProductlistService,
+    CreateProductService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
