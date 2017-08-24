@@ -7,7 +7,7 @@ import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy';
 import { TabsNavigationPage } from '../tabs-navigation/tabs-navigation';
 import { Slides } from 'ionic-angular';
 import { signupService } from "../signup/signup.service";
-import { DatasendModel } from "./signup.model";
+import { Address, DatasendModel } from './signup.model';
 
 // import { FacebookLoginService } from '../facebook-login/facebook-login.service';
 // import { GoogleLoginService } from '../google-login/google-login.service';
@@ -25,6 +25,7 @@ export class SignupPage {
   main_page: { component: any };
   loading: any;
   dataSend: DatasendModel = new DatasendModel();
+
   constructor(
     public nav: NavController,
     public modal: ModalController,
@@ -50,7 +51,12 @@ export class SignupPage {
     });
 
     this.signupshop = new FormGroup({
-      shopName: new FormControl('', Validators.required)
+      shopName: new FormControl('', Validators.required),
+      address: new FormControl('', Validators.required),
+      postcode: new FormControl('', Validators.required),
+      subdistrict: new FormControl('', Validators.required),
+      province: new FormControl('', Validators.required),
+      district: new FormControl('', Validators.required)
     });
   }
   ngAfterViewInit() {
@@ -103,7 +109,17 @@ export class SignupPage {
 
   doSignup() {
     this.dataSend.shop.name = this.signupshop.value.shopName;
+    this.dataSend.address.address = this.signupshop.value.address;
+    this.dataSend.address.district = this.signupshop.value.district;
+    this.dataSend.address.postcode = this.signupshop.value.postcode;
+    this.dataSend.address.province = this.signupshop.value.province;
+    this.dataSend.address.subdistrict = this.signupshop.value.subdistrict;
+
     this.dataSend.roles = ['seller'];
+    this.dataSend.address.firstName = ['amonrat'];
+    this.dataSend.address.lastName = ['chantawon'];
+    this.dataSend.address.tel = ['0934524524'];
+
     this.nav.setRoot(this.main_page.component);
     console.log(this.dataSend);
   }
