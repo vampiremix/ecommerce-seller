@@ -66,10 +66,10 @@ export class HomeManageOrderPage {
             this.navCtrl.push(OrderDetailPage);
           }
         },{
-          text: 'ยืนยันการสั่งซื้อสินค้า',
+          text: 'ยืนยันการส่งสินค้า',
           handler: () => {
             // this.confirm.present();
-            confirm("ยืนยันการสั่งซื้อสินค้า");
+            confirm("ยืนยันการส่งสินค้า");
             // this.showConfirm();
             console.log('Archive clicked');
           }
