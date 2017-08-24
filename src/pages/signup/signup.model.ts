@@ -7,8 +7,8 @@ export class DatasendModel {
     email: string;
     tel: string;
     shop: ShopModel = new ShopModel();
-    address :Address = new Address();
-    roles: Array<string>
+    address: Address = new Address();
+    roles: Array<string>;
 
 }
 export class ShopModel {
@@ -16,12 +16,12 @@ export class ShopModel {
 }
 
 export class Address {
-    address: String;
-    postcode: String;
-    subdistrict: String;
-    province: String;
-    district: String;
-    firstName: String;
-    lastName: String;
-    tel: String;
+    address: string;
+    postcode: string;
+    subdistrict: string;
+    province: string;
+    district: string;
+    firstname: string;
+    lastname: string;
+    tel: string;
 }

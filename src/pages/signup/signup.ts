@@ -115,9 +115,13 @@ export class SignupPage {
     this.dataSend.address.province = this.signupshop.value.province;
     this.dataSend.address.subdistrict = this.signupshop.value.subdistrict;
     this.dataSend.roles = ['seller'];
-    this.dataSend.address.firstName = 'amonrat';
-    this.dataSend.address.lastName = 'chantawon';
+    this.dataSend.address.firstname = 'amonrat';
+    this.dataSend.address.lastname = 'chantawon';
     this.dataSend.address.tel = '0934524524';
+
+    this.signupService.signup(this.dataSend).then(res=>{
+      console.log('XXXXXXXXXXXXXX'+res);
+    })
 
     this.nav.setRoot(this.main_page.component);
     console.log(this.dataSend);
