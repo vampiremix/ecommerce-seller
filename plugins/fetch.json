@@ -1,0 +1,20 @@
+{
+    "com.synconset.imagepicker": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-telerik-imagepicker"
+        },
+        "is_top_level": true,
+        "variables": {
+            "PHOTO_LIBRARY_USAGE_DESCRIPTION": "image library"
+        }
+    },
+    "com-badrit-base64": {
+        "source": {
+            "type": "registry",
+            "id": "com-badrit-base64"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}

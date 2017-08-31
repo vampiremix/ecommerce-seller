@@ -10,6 +10,7 @@ import { IonicPage, LoadingController, NavController, NavParams, ViewController 
 })
 export class CreateEditProductPage {
   private product: any = {};
+  private images: Array<any> = [];
   category: CategoryListModel = new CategoryListModel();
   cate: CategoryListModel = new CategoryListModel();
   subcate: CategoryListModel = new CategoryListModel();
@@ -34,11 +35,8 @@ export class CreateEditProductPage {
       this.cate.categorys = this.category.categorys.filter((obj) => {
         return obj.parent === "";
       });
-      // console.log("LOGG : " + this.cate.categorys);
-      console.log(res);
       loading.dismiss();
     }, err => {
-      console.log(err);
       loading.dismiss();
     });
   }
@@ -53,12 +51,12 @@ export class CreateEditProductPage {
     this.viewCtrl.dismiss();
   }
 
-  saveProduct() {
-    console.log(this.product);
+  setImage(e){
+    this.images = e;
   }
 
-  uploadImgs() {
-    this.product.imgs = [];
+  saveProduct() {
+    
   }
 
 }

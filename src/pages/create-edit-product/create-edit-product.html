@@ -3,11 +3,6 @@
   <ion-navbar>
     <ion-title>Product</ion-title>
     <ion-buttons start>
-      <button ion-button icon-only color="royal" (click)="uploadImgs()">
-          <ion-icon name="images"></ion-icon>
-        </button>
-    </ion-buttons>
-    <ion-buttons end>
       <button ion-button icon-only color="royal" (click)="closeModal()">
           <ion-icon name="close"></ion-icon>
         </button>
@@ -18,14 +13,8 @@
 
 
 <ion-content class="listing-content">
-  <ion-scroll scrollX="true" class="horizontal-categories">
-    <ion-row class="categories-row">
-      <ion-col width-30 class="horizontal-item" *ngFor="let data of [1,2,3,4,5,6,7]">
-        <preload-image [ratio]="{w:4, h:4}" src="http://www.sportsdirect.com/images/marketing/nikelanding-tainers.jpg"></preload-image>
-        <span class="trash"><ion-icon name="trash"></ion-icon></span>
-      </ion-col>
-    </ion-row>
-  </ion-scroll>
+
+  <images-layout-upload-x [maxImage]="10" (imageOutList)="setImage($event)"></images-layout-upload-x>
 
   <ion-list padding>
     <ion-item>

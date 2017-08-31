@@ -34,6 +34,7 @@ import { TwitterConnect } from '@ionic-native/twitter-connect';
 import { AdMobFree } from '@ionic-native/admob-free';
 import { AppRate } from '@ionic-native/app-rate';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { Base64 } from '@ionic-native/base64';
 import { Crop } from '@ionic-native/crop';
 import { EmailComposer } from '@ionic-native/email-composer';
 
@@ -79,6 +80,7 @@ import { HistoryService } from '../pages/history/history.service';
 import { LoginService } from '../pages/login/login.service';
 import { OrderDetailServiceProvider } from '../pages/order-detail/order-detail-service';
 import { ProductlistService } from "../pages/manage-product/manage-product.service";
+import { ImagesLayoutUploadXComponent } from '../components/images-layout-upload-x/images-layout-upload-x';
 
 
 
@@ -119,6 +121,7 @@ export function createTranslateLoader(http: Http) {
     ShowHideContainer,
     ShowHideInput,
     TopbarComponent,
+    ImagesLayoutUploadXComponent,
   ],
   imports: [
     BrowserModule,
@@ -184,6 +187,7 @@ export function createTranslateLoader(http: Http) {
     AdMobFree,
     AppRate,
     ImagePicker,
+    Base64,
     Crop,
     EmailComposer,
 
