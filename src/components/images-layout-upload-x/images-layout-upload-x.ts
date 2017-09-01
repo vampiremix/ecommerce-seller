@@ -20,19 +20,14 @@ export class ImagesLayoutUploadXComponent {
       let options = {
         maximumImagesCount: 1,
         width: 1080,
-        height: 1080
-        // quality: 80
+        height: 1080,
+        quality: 80
       };
 
       if (this.imagePicker.hasReadPermission()) {
         this.imagePicker.getPictures(options).then((results) => {
           if (results.length > 0) {
-            let id = new Date();
-            this.imageList.push({
-              id: id,
-              base64: this.convertImgUrlToBase64(results[0])
-            });
-            this.imageOutList.emit(this.imageList);
+            this.convertImgUrlToBase64(results[0]);
           }
         }, (err) => {
           alert('Message ERROR Get Pictures' + err);
@@ -42,13 +37,8 @@ export class ImagesLayoutUploadXComponent {
           this.imagePicker.getPictures(options).then((results) => {
             if (results.length > 0) {
               if (results.length > 0) {
-                let id = new Date();
-                this.imageList.push({
-                  id: id,
-                  base64: this.convertImgUrlToBase64(results[0])
-                });
+                this.convertImgUrlToBase64(results[0]);
               }
-              this.imageOutList.emit(this.imageList);
             }
           }, (err) => {
             alert('Message ERROR Get Pictures' + err);
@@ -67,8 +57,14 @@ export class ImagesLayoutUploadXComponent {
     this.base64.encodeFile(imgUrl).then((base64File: string) => {
       let base64img = base64File.replace(/\n/g, '');
       base64img = base64File.replace('data:image/*;charset=utf-8;base64,', 'data:image/jpg;base64,');
-      return base64img;
-    }, (err) => { return ''; });
+      let id = new Date();
+      this.imageList.push({
+        id: id,
+        imgUrl: imgUrl,
+        base64: base64img
+      });
+      this.imageOutList.emit(this.imageList);
+    }, (err) => { });
   }
 
   deleteImage(imgID) {

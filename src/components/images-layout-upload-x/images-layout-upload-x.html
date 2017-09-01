@@ -4,7 +4,7 @@
       <preload-image class="add-img" [ratio]="{w:4, h:4}" src="./assets/icon/add.png"></preload-image>
     </ion-col>
     <ion-col width-30 class="horizontal-item" *ngFor="let data of imageList">
-      <preload-image [ratio]="{w:4, h:4}" [src]="data.base64"></preload-image>
+      <preload-image [ratio]="{w:4, h:4}" [src]="data.imgUrl"></preload-image>
       <span class="trash" (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
     </ion-col>
   </ion-row>

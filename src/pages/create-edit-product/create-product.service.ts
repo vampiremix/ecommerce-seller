@@ -15,14 +15,14 @@ export class CreateProductService {
     });
     constructor(public http: Http) { }
 
-    // saveData() {
-    //      return this.http.get('https://www.heroku.com/save-product-service')
-    //         .toPromise()
-    //         .then(response => {
-    //             console.log(response);
-    //         })
-    //         .catch(this.handleError);
-    // }
+    saveData(data) {
+        return this.http.post('https://cloudinary01.herokuapp.com/api/products', { data: data })
+            .toPromise()
+            .then(response => {
+                console.log(response);
+            })
+            .catch(this.handleError);
+    }
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only

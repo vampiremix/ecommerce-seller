@@ -51,12 +51,17 @@ export class CreateEditProductPage {
     this.viewCtrl.dismiss();
   }
 
-  setImage(e){
+  setImage(e) {
     this.images = e;
+
   }
 
   saveProduct() {
-    
+    this.createProductService.saveData(this.images).then(data => {
+      alert('save success');
+    }, err => {
+      alert(err);
+    });
   }
 
 }
